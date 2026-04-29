@@ -3,26 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shain D Souza — Regional Manager</title>
+<title>Shain D Souza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #06060f;
-  --bg2: #0a0a16;
-  --glass: rgba(255,255,255,0.035);
-  --glass-border: rgba(255,255,255,0.07);
-  --purple: #a855f7;
-  --purple-bright: #c084fc;
-  --purple-dim: #7c3aed;
-  --purple-glow: rgba(168,85,247,0.18);
-  --purple-soft: rgba(168,85,247,0.07);
-  --text: #ede8ff;
-  --text-muted: #8880a8;
-  --text-dim: #4a4560;
-  --white: #ffffff;
-  --metallic: #e8e0d0;
-  --metallic-bright: #f5f0e8;
+  --bg:#06060f;--bg2:#0a0a18;--glass:rgba(255,255,255,0.035);--glass-border:rgba(255,255,255,0.07);
+  --purple:#a855f7;--purple-bright:#c084fc;--purple-dim:#7c3aed;--purple-glow:rgba(168,85,247,0.2);--purple-soft:rgba(168,85,247,0.08);
+  --teal:#2dd4bf;--teal-soft:rgba(45,212,191,0.08);--amber:#f59e0b;--amber-soft:rgba(245,158,11,0.08);
+  --text:#ede8ff;--text-muted:#8880a8;--text-dim:#4a4560;--white:#ffffff;--metallic:#e8e0d0;--metallic-bright:#f5f0e8;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -30,258 +19,183 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;fon
 #canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 
 /* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:0 64px;height:68px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(6,6,15,0.55);
-  backdrop-filter:blur(40px) saturate(1.6);
-  -webkit-backdrop-filter:blur(40px) saturate(1.6);
-  border-bottom:1px solid var(--glass-border);
-  box-shadow:0 1px 60px rgba(0,0,0,0.5),inset 0 -1px 0 rgba(168,85,247,0.08);
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 64px;height:68px;display:flex;justify-content:space-between;align-items:center;background:rgba(6,6,15,0.6);backdrop-filter:blur(40px) saturate(1.6);-webkit-backdrop-filter:blur(40px) saturate(1.6);border-bottom:1px solid var(--glass-border);box-shadow:0 1px 60px rgba(0,0,0,0.5);}
 .nav-logo{font-family:"Cormorant Garamond",serif;font-size:19px;font-weight:600;letter-spacing:0.14em;color:var(--white);text-transform:uppercase;}
 .nav-logo span{color:var(--purple);}
-.nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:40px;}
-.nav-center a{color:var(--text-muted);text-decoration:none;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding-bottom:3px;border-bottom:1px solid transparent;transition:color 0.25s,border-color 0.25s;}
-.nav-center a:hover{color:var(--purple);border-color:var(--purple);}
-.nav-right a{padding:9px 22px;background:var(--purple-soft);border:1px solid rgba(168,85,247,0.25);color:var(--purple-bright);text-decoration:none;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;transition:all 0.3s;backdrop-filter:blur(10px);}
-.nav-right a:hover{background:var(--purple);color:white;box-shadow:0 4px 20px var(--purple-glow);}
+.nav-links{display:flex;gap:36px;align-items:center;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding-bottom:2px;border-bottom:1px solid transparent;transition:color 0.25s,border-color 0.25s;}
+.nav-links a:hover{color:var(--purple);border-color:var(--purple);}
+.nav-cta{padding:8px 20px;background:var(--purple-soft);border:1px solid rgba(168,85,247,0.3);color:var(--purple-bright);text-decoration:none;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;transition:all 0.3s;}
+.nav-cta:hover{background:var(--purple);color:white;box-shadow:0 4px 20px var(--purple-glow);}
 
-/* HERO — full width, centered, no image */
-#hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:120px 64px 80px;
-  text-align:center;
-}
-.hero-inner{max-width:780px;width:100%;}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;justify-content:center;gap:12px;
-  font-size:10.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--purple);
-  margin-bottom:32px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;
-}
-.hero-eyebrow::before,.hero-eyebrow::after{content:"";width:28px;height:1px;background:var(--purple);display:block;}
-.hero-name{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(64px,10vw,120px);font-weight:300;line-height:0.92;
-  color:var(--white);margin-bottom:24px;
-  opacity:0;animation:fadeUp 0.8s 0.4s forwards;letter-spacing:-0.02em;
-}
-.hero-name strong{font-weight:600;}
-.hero-title{
-  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);
-  margin-bottom:36px;opacity:0;animation:fadeUp 0.8s 0.6s forwards;
-}
-.hero-title span{color:var(--purple);margin:0 10px;}
-.hero-tagline{
-  font-size:17px;line-height:1.85;color:var(--text-muted);
-  max-width:600px;margin:0 auto 52px;
-  opacity:0;animation:fadeUp 0.8s 0.8s forwards;
-}
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 64px 100px;text-align:center;position:relative;z-index:1;}
+.hero-location{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
+.hero-location::before,.hero-location::after{content:"";width:20px;height:1px;background:var(--teal);}
+.hero-name{font-family:"Cormorant Garamond",serif;font-size:clamp(72px,12vw,140px);font-weight:300;line-height:0.9;color:var(--white);margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.4s forwards;letter-spacing:-0.03em;}
+.hero-name strong{font-weight:600;background:linear-gradient(135deg,var(--white) 0%,var(--purple-bright) 60%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-typing-wrap{height:28px;display:flex;align-items:center;justify-content:center;margin-bottom:36px;opacity:0;animation:fadeUp 0.8s 0.6s forwards;}
+.hero-typing{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:0.14em;color:var(--purple-bright);text-transform:uppercase;}
+.hero-cursor{display:inline-block;width:2px;height:14px;background:var(--purple-bright);margin-left:3px;vertical-align:middle;animation:blink 1s infinite;}
+.hero-tagline{font-size:17px;line-height:1.9;color:var(--text-muted);max-width:580px;margin:0 auto 52px;opacity:0;animation:fadeUp 0.8s 0.8s forwards;}
 .hero-tagline em{color:var(--text);font-style:normal;}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 0.8s 1.0s forwards;}
-.hero-stats{
-  display:flex;justify-content:center;gap:0;
-  margin-top:64px;
-  opacity:0;animation:fadeUp 0.8s 1.1s forwards;
-  border:1px solid var(--glass-border);
-  backdrop-filter:blur(40px) saturate(1.6);
-  -webkit-backdrop-filter:blur(40px) saturate(1.6);
-  background:rgba(255,255,255,0.03);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);
-  max-width:520px;margin-left:auto;margin-right:auto;margin-top:64px;
-}
-.hero-stat{
-  flex:1;padding:20px 16px;text-align:center;
-  border-right:1px solid var(--glass-border);transition:background 0.3s;
-}
-.hero-stat:last-child{border-right:none;}
-.hero-stat:hover{background:var(--purple-soft);}
-.hero-stat-num{
-  font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;line-height:1;margin-bottom:6px;
-  background:linear-gradient(135deg,var(--metallic-bright),var(--metallic),#c8bfa8);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero-stat-label{font-size:9.5px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.4;}
-
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 0.8s 1.0s forwards;margin-bottom:72px;}
 .btn-primary{padding:13px 32px;background:var(--purple);color:white;border:none;font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
 .btn-primary:hover{background:var(--purple-bright);transform:translateY(-2px);box-shadow:0 8px 28px rgba(168,85,247,0.45);}
-.btn-secondary{padding:13px 32px;background:rgba(255,255,255,0.03);color:var(--text-muted);border:1px solid var(--glass-border);font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;backdrop-filter:blur(10px);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
-.btn-secondary:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-2px);}
+.btn-ghost{padding:13px 32px;background:transparent;color:var(--text-muted);border:1px solid var(--glass-border);font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-2px);}
+.hero-stats{display:flex;justify-content:center;gap:0;border:1px solid var(--glass-border);backdrop-filter:blur(40px);background:rgba(255,255,255,0.025);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);max-width:560px;width:100%;opacity:0;animation:fadeUp 0.8s 1.1s forwards;}
+.hero-stat{flex:1;padding:18px 12px;text-align:center;border-right:1px solid var(--glass-border);transition:background 0.3s;}
+.hero-stat:last-child{border-right:none;}
+.hero-stat:hover{background:var(--purple-soft);}
+.hero-stat-num{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;line-height:1;margin-bottom:5px;background:linear-gradient(135deg,var(--metallic-bright),var(--metallic),#c8bfa8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-stat-label{font-size:9px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.4;}
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn 1s 2s forwards;}
+.scroll-hint span{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);}
+.scroll-line{width:1px;height:36px;background:linear-gradient(180deg,var(--purple),transparent);animation:scrollPulse 2s infinite;}
 
 /* SECTIONS */
 section{position:relative;z-index:1;}
-.section-label{font-size:10.5px;letter-spacing:0.25em;text-transform:uppercase;color:var(--purple);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
-.section-label::before{content:"";width:24px;height:1px;background:var(--purple);}
-.section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4.5vw,52px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:52px;}
-.inner{max-width:1160px;margin:0 auto;padding:0 64px;}
+.inner{max-width:1100px;margin:0 auto;padding:0 64px;}
+.section-eyebrow{font-size:10.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--purple);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--purple);}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:56px;}
+.section-title em{font-style:italic;color:var(--purple-bright);}
 
 /* ABOUT */
 #about{padding:120px 0;}
-.about-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:start;}
-.about-text p{font-size:15px;line-height:1.9;color:var(--text-muted);margin-bottom:18px;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.about-text p{font-size:15.5px;line-height:1.9;color:var(--text-muted);margin-bottom:20px;}
 .about-text p em{color:var(--text);font-style:normal;}
-
-/* STATIC GLASS CARD */
-.about-card{
-  padding:36px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--glass-border);
-  backdrop-filter:blur(40px) saturate(1.6);
-  -webkit-backdrop-filter:blur(40px) saturate(1.6);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.08),0 24px 60px rgba(0,0,0,0.35),inset 1px 0 0 rgba(168,85,247,0.06);
-  position:relative;
-}
-.about-card::before{
-  content:"“";
-  position:absolute;top:-22px;left:22px;
-  font-family:"Cormorant Garamond",serif;font-size:90px;
-  color:var(--purple);opacity:0.15;line-height:1;pointer-events:none;
-}
-.about-quote{
-  font-family:"Cormorant Garamond",serif;font-size:18px;font-weight:300;
-  line-height:1.75;color:var(--text);font-style:italic;
-  padding-bottom:28px;margin-bottom:28px;
-  border-bottom:1px solid var(--glass-border);
-}
-.about-traits{display:flex;flex-direction:column;gap:0;}
-.about-trait{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04);
-}
+.origin-story{padding:22px 24px;background:rgba(45,212,191,0.04);border:1px solid rgba(45,212,191,0.12);border-left:3px solid var(--teal);font-size:14.5px;line-height:1.85;color:var(--text-muted);margin-top:24px;}
+.origin-story em{color:var(--teal);font-style:normal;}
+.glass-card{padding:32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);backdrop-filter:blur(40px) saturate(1.5);-webkit-backdrop-filter:blur(40px) saturate(1.5);box-shadow:inset 0 1px 0 rgba(255,255,255,0.07),0 20px 60px rgba(0,0,0,0.3);}
+.glass-card-label{font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--purple);margin-bottom:20px;}
+.glass-quote{font-family:"Cormorant Garamond",serif;font-size:17px;font-weight:300;line-height:1.75;color:var(--text);font-style:italic;padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--glass-border);position:relative;}
+.glass-quote::before{content:"\u201C";position:absolute;top:-18px;left:-4px;font-size:70px;color:var(--purple);opacity:0.15;line-height:1;pointer-events:none;}
+.about-traits{display:flex;flex-direction:column;}
+.about-trait{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
 .about-trait:last-child{border-bottom:none;padding-bottom:0;}
 .about-trait:first-child{padding-top:0;}
-.about-trait-dot{width:5px;height:5px;border-radius:50%;background:var(--purple);flex-shrink:0;margin-top:7px;}
-.about-trait p{font-size:13.5px;line-height:1.6;color:var(--text-muted);}
+.about-trait-dot{width:5px;height:5px;border-radius:50%;background:var(--purple);flex-shrink:0;margin-top:8px;}
+.about-trait p{font-size:14px;line-height:1.65;color:var(--text-muted);}
 .about-trait p em{color:var(--text);font-style:normal;font-weight:500;}
 
-/* ACHIEVEMENTS */
+/* IMPACT */
 #achievements{padding:80px 0;background:var(--bg2);}
 .achievements-rows{display:flex;flex-direction:column;gap:1px;}
 .achievement-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--glass-border);}
-.achievement-cell{
-  padding:28px 32px;
-  background:rgba(10,10,22,0.95);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  display:flex;align-items:center;gap:20px;
-  transition:all 0.3s;cursor:default;position:relative;overflow:hidden;
-}
+.achievement-cell{padding:26px 24px;background:rgba(10,10,24,0.95);backdrop-filter:blur(20px);display:flex;align-items:center;gap:16px;transition:all 0.3s;cursor:default;position:relative;overflow:hidden;}
 .achievement-cell::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--purple);transform:scaleY(0);transition:transform 0.3s;transform-origin:bottom;}
 .achievement-cell:hover::before{transform:scaleY(1);}
 .achievement-cell:hover{background:rgba(168,85,247,0.06);}
-.achievement-num{
-  font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:600;line-height:1;white-space:nowrap;flex-shrink:0;
-  background:linear-gradient(135deg,var(--metallic-bright) 0%,var(--metallic) 50%,#b8ae98 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
+.achievement-num{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:600;line-height:1;white-space:nowrap;flex-shrink:0;background:linear-gradient(135deg,var(--metallic-bright) 0%,var(--metallic) 50%,#b8ae98 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .achievement-label{font-size:11px;color:var(--text-muted);letter-spacing:0.06em;line-height:1.45;}
 
 /* EXPERIENCE */
 #experience{padding:120px 0;}
 .exp-list{display:flex;flex-direction:column;gap:2px;}
-.exp-item{background:rgba(255,255,255,0.025);border:1px solid var(--glass-border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
+.exp-item{background:rgba(255,255,255,0.025);border:1px solid var(--glass-border);backdrop-filter:blur(20px);cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
 .exp-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--purple),var(--purple-dim));transform:scaleY(0);transition:transform 0.35s;transform-origin:top;}
 .exp-item.active::before{transform:scaleY(1);}
-.exp-item.active{background:rgba(168,85,247,0.05);border-color:rgba(168,85,247,0.18);box-shadow:0 4px 40px rgba(168,85,247,0.08);}
-.exp-header{padding:32px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;}
+.exp-item.active{background:rgba(168,85,247,0.05);border-color:rgba(168,85,247,0.18);}
+.exp-header{padding:28px 36px;display:flex;justify-content:space-between;align-items:center;gap:24px;}
 .exp-role{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:4px;}
 .exp-company{font-size:12px;color:var(--purple);letter-spacing:0.08em;}
-.exp-meta{text-align:right;flex-shrink:0;}
+.exp-right{text-align:right;flex-shrink:0;}
 .exp-period{font-size:11px;color:var(--text-dim);letter-spacing:0.08em;margin-bottom:8px;}
-.exp-toggle{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--glass-border);color:var(--text-dim);font-size:18px;transition:all 0.3s;margin-left:auto;}
+.exp-toggle{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid var(--glass-border);color:var(--text-dim);font-size:18px;transition:all 0.3s;}
 .exp-item.active .exp-toggle{transform:rotate(45deg);color:var(--purple);border-color:rgba(168,85,247,0.3);background:var(--purple-soft);}
 .exp-body{max-height:0;overflow:hidden;transition:max-height 0.55s ease;}
-.exp-item.active .exp-body{max-height:1400px;}
-.exp-content{padding:0 40px 32px;}
-.exp-category{margin-bottom:24px;}
-.exp-cat-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);margin-bottom:12px;opacity:0.7;}
-.exp-points{list-style:none;display:flex;flex-direction:column;gap:9px;padding:0;}
+.exp-item.active .exp-body{max-height:1600px;}
+.exp-content{padding:0 36px 28px;}
+.exp-category{margin-bottom:22px;}
+.exp-cat-label{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;opacity:0.7;}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}
 .exp-points li{font-size:13.5px;line-height:1.75;color:var(--text-muted);padding-left:20px;position:relative;}
 .exp-points li::before{content:"▸";position:absolute;left:0;top:3px;color:var(--purple);font-size:10px;}
 .exp-points li strong{color:var(--text);font-weight:500;}
 
-/* SKILLS — editorial rows */
-#skills{padding:80px 0;}
-.skills-rows{display:flex;flex-direction:column;}
-.skill-divider{
-  font-family:"Cormorant Garamond",serif;
-  font-size:13px;font-weight:300;color:var(--purple);
-  letter-spacing:0.2em;text-transform:uppercase;
-  padding:36px 0 16px;
-  border-bottom:1px solid rgba(168,85,247,0.2);
-  margin-bottom:0;
-}
-.skill-divider:first-child{padding-top:0;}
-.skill-row{
-  display:grid;grid-template-columns:200px 1fr;
-  align-items:baseline;gap:32px;
-  padding:20px 0;
-  border-bottom:1px solid rgba(255,255,255,0.04);
-  transition:all 0.3s;position:relative;
-}
-.skill-row::before{content:"";position:absolute;left:-64px;top:0;bottom:0;width:2px;background:var(--purple);transform:scaleY(0);transition:transform 0.3s;transform-origin:center;}
-.skill-row:hover::before{transform:scaleY(1);}
-.skill-row:hover .skill-tag-inline{color:var(--white);}
-.skill-row:hover .skill-tag-inline::after{color:var(--purple);}
-.skill-row.touched .skill-tag-inline{color:var(--white);}
-.skill-row.touched .skill-tag-inline::after{color:var(--purple);}
-.skill-cat{font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);line-height:1.4;}
-.skill-tags-inline{display:flex;flex-wrap:wrap;align-items:center;}
-.skill-tag-inline{font-size:13.5px;color:#b8b0d8;transition:color 0.2s;line-height:1.8;}
-.skill-tag-inline::after{content:"·";margin:0 13px;color:var(--text-dim);font-size:16px;line-height:1;transition:color 0.2s;}
-.skill-tag-inline:last-child::after{display:none;}
-@media(hover:none){
-  .skill-tag-inline{color:#c8c0e0;}
-}
+/* SKILLS — icon card grid */
+#skills{padding:80px 0;background:var(--bg2);}
+.skills-section-label{font-family:"Cormorant Garamond",serif;font-size:13px;font-weight:300;color:var(--purple);letter-spacing:0.2em;text-transform:uppercase;padding-bottom:14px;border-bottom:1px solid rgba(168,85,247,0.2);margin-bottom:24px;margin-top:44px;}
+.skills-section-label:first-of-type{margin-top:0;}
+.skills-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.skill-card{padding:24px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);backdrop-filter:blur(30px);transition:all 0.3s;position:relative;overflow:hidden;}
+.skill-card::before{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--purple-bright));transform:scaleX(0);transition:transform 0.35s;transform-origin:left;}
+.skill-card:hover::before{transform:scaleX(1);}
+.skill-card:hover{border-color:rgba(168,85,247,0.25);background:var(--purple-soft);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.2);}
+.skill-card-icon{font-size:24px;margin-bottom:12px;display:block;}
+.skill-card-title{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text);font-weight:500;margin-bottom:14px;}
+.skill-card-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.skill-tag{padding:4px 10px;background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.14);font-size:11px;color:var(--text-muted);transition:all 0.2s;}
+.skill-card:hover .skill-tag{color:var(--purple-bright);border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);}
+
+/* LANGUAGES */
+#languages{padding:80px 0;}
+.lang-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.lang-card{padding:28px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);backdrop-filter:blur(30px);transition:all 0.3s;}
+.lang-card:hover{border-color:rgba(168,85,247,0.25);background:var(--purple-soft);transform:translateY(-2px);}
+.lang-name{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:5px;}
+.lang-level{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;}
+.lang-bar{height:2px;background:rgba(255,255,255,0.08);overflow:hidden;margin-bottom:12px;}
+.lang-bar-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple-bright));width:0%;transition:width 1.5s cubic-bezier(0.4,0,0.2,1);}
+.lang-note{font-size:12px;color:var(--text-dim);line-height:1.55;}
+.lang-arabic{padding:28px 32px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.14);display:flex;align-items:center;gap:32px;flex-wrap:wrap;}
+.lang-arabic-left{flex-shrink:0;}
+.lang-arabic-phrase{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;color:var(--amber);letter-spacing:0.05em;font-style:italic;}
+.lang-arabic-sub{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,158,11,0.5);margin-top:4px;}
+.lang-arabic-note{font-size:13.5px;color:var(--text-muted);line-height:1.65;}
+.lang-arabic-note em{color:var(--amber);font-style:normal;}
 
 /* CONTACT */
 #contact{padding:120px 0;text-align:center;}
-.contact-exploring{
-  font-size:13px;letter-spacing:0.06em;color:var(--text-dim);
-  margin-bottom:8px;
-}
+.contact-status{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(45,212,191,0.06);border:1px solid rgba(45,212,191,0.15);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
+.contact-status-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;flex-shrink:0;}
+.contact-exploring{font-size:12px;color:var(--text-dim);margin-bottom:32px;letter-spacing:0.04em;}
 .contact-exploring em{color:var(--purple);font-style:normal;}
-.contact-sub{font-size:15px;color:var(--text-muted);max-width:460px;margin:0 auto 52px;line-height:1.85;}
-.contact-methods{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
-.contact-card{
-  padding:18px 28px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--glass-border);
-  backdrop-filter:blur(40px) saturate(1.6);
-  -webkit-backdrop-filter:blur(40px) saturate(1.6);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.07);
-  text-decoration:none;color:var(--text-muted);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
-  transition:all 0.3s;display:flex;align-items:center;gap:10px;
-}
-.contact-card:hover{border-color:var(--purple);color:var(--purple-bright);transform:translateY(-3px);box-shadow:0 8px 30px var(--purple-glow),inset 0 1px 0 rgba(168,85,247,0.15);background:var(--purple-soft);}
+.contact-sub{font-size:15px;color:var(--text-muted);max-width:480px;margin:0 auto 48px;line-height:1.85;}
+.contact-methods{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
+.contact-card{padding:16px 26px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);backdrop-filter:blur(40px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);text-decoration:none;color:var(--text-muted);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;display:flex;align-items:center;gap:10px;}
+.contact-card:hover{border-color:var(--purple);color:var(--purple-bright);transform:translateY(-3px);box-shadow:0 8px 30px var(--purple-glow);background:var(--purple-soft);}
+.resume-download{margin-top:8px;}
+.resume-download p{font-size:11.5px;color:var(--text-dim);letter-spacing:0.04em;margin-bottom:14px;font-style:italic;}
+.resume-download p em{color:var(--text-muted);font-style:normal;}
+.btn-download{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);color:var(--text-muted);text-decoration:none;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;transition:all 0.3s;backdrop-filter:blur(20px);}
+.btn-download:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,212,191,0.15);background:rgba(45,212,191,0.05);}
 
 /* FOOTER */
-footer{padding:28px 64px;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;background:rgba(6,6,15,0.7);backdrop-filter:blur(20px);}
+footer{padding:28px 64px;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;background:rgba(6,6,15,0.8);backdrop-filter:blur(20px);}
 footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.85s ease,transform 0.85s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+@keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
 
 @media(max-width:960px){
-  nav{padding:0 20px;} .nav-center{display:none;}
-  #hero{padding:100px 24px 60px;}
-  .hero-name{font-size:clamp(52px,14vw,80px);}
-  .hero-title{font-size:10px;letter-spacing:0.1em;}
+  nav{padding:0 20px;} .nav-links{display:none;}
+  #hero{padding:100px 24px 80px;}
+  .hero-name{font-size:clamp(56px,16vw,88px);}
   .hero-stats{max-width:100%;}
   .inner{padding:0 24px;}
   #about,#experience,#contact{padding:80px 0;}
   .about-grid{grid-template-columns:1fr;gap:36px;}
-  #achievements{padding:60px 0;}
+  #achievements,#skills,#languages{padding:60px 0;}
   .achievement-row{grid-template-columns:repeat(2,1fr);}
-  .achievement-cell{padding:20px 18px;gap:12px;}
-  .achievement-num{font-size:28px;}
-  #skills{padding:60px 0;}
-  .skill-row{grid-template-columns:1fr;gap:6px;}
-  .skill-row::before{display:none;}
-  .skill-divider{padding-top:28px;}
+  .achievement-cell{padding:18px 16px;gap:12px;}
+  .achievement-num{font-size:26px;}
+  .skills-card-grid{grid-template-columns:1fr 1fr;}
+  .lang-grid{grid-template-columns:1fr 1fr;}
   footer{padding:24px;flex-direction:column;gap:10px;text-align:center;}
+}
+@media(max-width:600px){
+  .skills-card-grid{grid-template-columns:1fr;}
+  .lang-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -290,78 +204,63 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 
 <nav>
   <div class="nav-logo">SHAIN D<span>&nbsp;</span>SOUZA</div>
-  <div class="nav-center">
+  <div class="nav-links">
     <a href="#about">About</a>
     <a href="#achievements">Impact</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
+    <a href="#languages">Languages</a>
     <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Let&apos;s Talk</a>
   </div>
-  <div class="nav-right"><a href="#contact">Let&apos;s Talk</a></div>
 </nav>
 
 <section id="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Regional Manager &middot; Dubai, UAE</p>
-    <h1 class="hero-name"><strong>Shain</strong> D Souza</h1>
-    <p class="hero-title">Sales <span>&middot;</span> Cross-Functional Leadership <span>&middot;</span> 7 Markets</p>
-    <p class="hero-tagline">
-      I take ownership of regions, not just roles.<br>
-      Building the <em>teams</em>, the <em>strategy</em>, and the commercial
-      infrastructure that drives consistent growth across markets.
-    </p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Get in Touch</a>
-      <a href="#experience" class="btn-secondary">View Experience</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">$5M+</div>
-        <div class="hero-stat-label">Revenue Closed</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">7</div>
-        <div class="hero-stat-label">Global Markets</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">15+</div>
-        <div class="hero-stat-label">Team Members</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">90%</div>
-        <div class="hero-stat-label">Client Retention</div>
-      </div>
-    </div>
+  <p class="hero-location">Dubai, UAE</p>
+  <h1 class="hero-name"><strong>Shain</strong> D Souza</h1>
+  <div class="hero-typing-wrap">
+    <span class="hero-typing" id="typingText"></span><span class="hero-cursor"></span>
   </div>
+  <p class="hero-tagline">
+    I take ownership of regions, not just roles.<br>
+    Building the <em>teams</em>, the <em>strategy</em>, and the commercial
+    infrastructure that drives consistent growth across markets.
+  </p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <a href="#experience" class="btn-ghost">View Experience</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">$5M+</div><div class="hero-stat-label">Revenue Closed</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Global Markets</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">15+</div><div class="hero-stat-label">Team Members</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">90%</div><div class="hero-stat-label">Client Retention</div></div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
 <section id="about">
   <div class="inner">
     <div class="reveal">
-      <p class="section-label">About Me</p>
-      <h2 class="section-title">5 years leading teams.<br>8 years in the field.</h2>
+      <p class="section-eyebrow">About Me</p>
+      <h2 class="section-title">5 years leading teams.<br><em>8 years in the field.</em></h2>
     </div>
     <div class="about-grid reveal">
       <div class="about-text">
         <p>Most leaders focus on the scoreboard. I focus on what puts the numbers there &mdash; <em>the right people, the right processes, and a culture where accountability and ambition go hand in hand</em>. That is how you build a region that performs consistently, not just occasionally.</p>
         <p>Over 8 years across MENA, APAC, and global markets, I have built and led cross-functional teams spanning <em>enterprise sales, business development, content, and creative production</em>. My role is to set the direction, build the capability, and clear the path &mdash; so the team can run.</p>
         <p>I stay close to the market, close to the client, and close to the people I lead. That proximity is what keeps strategy grounded and execution sharp.</p>
+        <div class="origin-story">
+          I ended up in sales because connecting with people came naturally to me. Then I learned the hard way that there is a lot of <em>unglamorous stuff</em> that sits between the conversations &mdash; pipelines, processes, forecasting, follow-ups. Took me a while, but I got to loving all of it anyway.
+        </div>
       </div>
-      <div class="about-card">
-        <p class="about-quote">Growth is not a target you hand to a team. It is something you build together &mdash; with the right structure, honest conversations, and a standard everyone is held to, including me.</p>
+      <div class="glass-card">
+        <div class="glass-card-label">How I lead</div>
+        <p class="glass-quote">Growth is not a target you hand to a team. It is something you build together &mdash; with the right structure, honest conversations, and a standard everyone is held to, including me.</p>
         <div class="about-traits">
-          <div class="about-trait">
-            <div class="about-trait-dot"></div>
-            <p><em>I influence decisions</em> before they are made</p>
-          </div>
-          <div class="about-trait">
-            <div class="about-trait-dot"></div>
-            <p><em>I build connections</em> that genuinely last</p>
-          </div>
-          <div class="about-trait">
-            <div class="about-trait-dot"></div>
-            <p><em>I think before I move</em> &mdash; always</p>
-          </div>
+          <div class="about-trait"><div class="about-trait-dot"></div><p><em>I influence decisions</em> before they are made</p></div>
+          <div class="about-trait"><div class="about-trait-dot"></div><p><em>I build connections</em> that genuinely last</p></div>
+          <div class="about-trait"><div class="about-trait-dot"></div><p><em>I think before I move</em> &mdash; always</p></div>
         </div>
       </div>
     </div>
@@ -371,45 +270,21 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 <section id="achievements">
   <div class="inner">
     <div class="reveal">
-      <p class="section-label">Impact</p>
-      <h2 class="section-title">Numbers that matter.</h2>
+      <p class="section-eyebrow">Impact</p>
+      <h2 class="section-title">Numbers that <em>matter.</em></h2>
     </div>
     <div class="achievements-rows reveal">
       <div class="achievement-row">
-        <div class="achievement-cell">
-          <div class="achievement-num" data-target="5" data-prefix="$" data-suffix="M+">$0</div>
-          <div class="achievement-label">Personal Revenue Closed</div>
-        </div>
-        <div class="achievement-cell">
-          <div class="achievement-num" data-target="7" data-suffix="">0</div>
-          <div class="achievement-label">Global Markets Managed</div>
-        </div>
-        <div class="achievement-cell">
-          <div class="achievement-num" data-target="15" data-suffix="+">0</div>
-          <div class="achievement-label">Team Members Led</div>
-        </div>
-        <div class="achievement-cell">
-          <div class="achievement-num" data-target="90" data-suffix="%">0</div>
-          <div class="achievement-label">Client Retention Rate</div>
-        </div>
+        <div class="achievement-cell"><div class="achievement-num" data-target="5" data-prefix="$" data-suffix="M+">$0</div><div class="achievement-label">Personal Revenue Closed</div></div>
+        <div class="achievement-cell"><div class="achievement-num" data-target="7" data-suffix="">0</div><div class="achievement-label">Global Markets Managed</div></div>
+        <div class="achievement-cell"><div class="achievement-num" data-target="15" data-suffix="+">0</div><div class="achievement-label">Team Members Led</div></div>
+        <div class="achievement-cell"><div class="achievement-num" data-target="90" data-suffix="%">0</div><div class="achievement-label">Client Retention Rate</div></div>
       </div>
       <div class="achievement-row">
-        <div class="achievement-cell">
-          <div class="achievement-num" data-prefix="&#163;" data-target="1" data-suffix="M+">&#163;0</div>
-          <div class="achievement-label">Largest Team Deal &mdash; UK</div>
-        </div>
-        <div class="achievement-cell">
-          <div class="achievement-num" data-target="50" data-suffix="%">0</div>
-          <div class="achievement-label">Uplift in Platform Conversion</div>
-        </div>
-        <div class="achievement-cell">
-          <div class="achievement-num" data-prefix="$" data-target="2" data-suffix="M">$0</div>
-          <div class="achievement-label">Active Pipeline 2026</div>
-        </div>
-        <div class="achievement-cell">
-          <div class="achievement-num" data-target="5" data-suffix=" yrs">0</div>
-          <div class="achievement-label">Regional Leadership</div>
-        </div>
+        <div class="achievement-cell"><div class="achievement-num" data-prefix="&#163;" data-target="1" data-suffix="M+">&#163;0</div><div class="achievement-label">Largest Team Deal &mdash; UK</div></div>
+        <div class="achievement-cell"><div class="achievement-num" data-target="50" data-suffix="%">0</div><div class="achievement-label">Uplift in Platform Conversion</div></div>
+        <div class="achievement-cell"><div class="achievement-num" data-prefix="$" data-target="2" data-suffix="M">$0</div><div class="achievement-label">Active Pipeline 2026</div></div>
+        <div class="achievement-cell"><div class="achievement-num" data-target="5" data-suffix=" yrs">0</div><div class="achievement-label">Regional Leadership</div></div>
       </div>
     </div>
   </div>
@@ -418,109 +293,79 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 <section id="experience">
   <div class="inner">
     <div class="reveal">
-      <p class="section-label">Career</p>
-      <h2 class="section-title">Where I have built things.</h2>
+      <p class="section-eyebrow">Career</p>
+      <h2 class="section-title">Where I have <em>built things.</em></h2>
     </div>
     <div class="exp-list reveal">
       <div class="exp-item active" onclick="toggleExp(this)">
         <div class="exp-header">
-          <div>
-            <div class="exp-role">Regional Manager</div>
-            <div class="exp-company">The Ticket Fairy DMCC &mdash; Enterprise SaaS Event Technology</div>
-          </div>
-          <div class="exp-meta">
-            <div class="exp-period">Oct 2021 &ndash; Present &middot; Dubai, UAE</div>
-            <div class="exp-toggle">+</div>
-          </div>
+          <div><div class="exp-role">Regional Manager</div><div class="exp-company">The Ticket Fairy DMCC &mdash; Enterprise SaaS Event Technology</div></div>
+          <div class="exp-right"><div class="exp-period">Oct 2021 &ndash; Present &middot; Dubai, UAE</div><div class="exp-toggle">+</div></div>
         </div>
-        <div class="exp-body">
-          <div class="exp-content">
-            <div class="exp-category">
-              <div class="exp-cat-label">Leadership &amp; Team Management</div>
-              <ul class="exp-points">
-                <li><strong>Lead a 15-person cross-functional team</strong> spanning sales executives, BD partners, social media specialists, graphic designers, SEO content writers, and an editorial lead &mdash; plus direct oversight of three specialist agencies.</li>
-                <li>Set and own targets across all functions: <strong>revenue and client acquisition targets</strong> for the sales team varied by region, and KPI frameworks for non-sales staff covering content output and organic traffic growth.</li>
-                <li>Manage the full performance lifecycle &mdash; from structured coaching and pipeline reviews to formal PIPs and termination where necessary.</li>
-                <li><strong>Built all core operational frameworks from scratch</strong>: sales playbook, onboarding programme, performance management structure, and compensation model.</li>
-                <li>Run weekly team meetings, pipeline reviews, and individual 1-on-1 coaching sessions across all functions.</li>
-              </ul>
-            </div>
-            <div class="exp-category">
-              <div class="exp-cat-label">CEO Advisory &amp; Regional Strategy</div>
-              <ul class="exp-points">
-                <li>Trusted <strong>strategic advisor to the CEO</strong> &mdash; consulted on market entry, revenue planning, product priorities, and organisational decisions.</li>
-                <li><strong>Identified high self-signup abandonment</strong> and led a strategic pivot redeploying the sales team to convert dormant accounts &mdash; driving a <strong>50% uplift in self-signups going live</strong>.</li>
-                <li>Set UAE market pricing strategy and negotiate directly with payment processors to improve platform unit economics.</li>
-                <li>Drive quarterly planning cycles, defining market priorities and revenue targets across all active regions.</li>
-                <li><strong>Primary government liaison</strong> including DET relationship and sole owner of all UAE compliance matters.</li>
-              </ul>
-            </div>
-            <div class="exp-category">
-              <div class="exp-cat-label">Enterprise Sales &amp; Market Development</div>
-              <ul class="exp-points">
-                <li><strong>Personally closed $5M+ in enterprise contracts</strong> (~$800K average, 2-year terms) through C-level engagement across 7 global markets &mdash; $2M in active pipeline (2026).</li>
-                <li>Led teams to deliver <strong>&#163;300K+ UK revenue</strong> and 140+ new India clients, including a &#8377;20M white label deal.</li>
-                <li><strong>Personally opened UAE and Bali markets</strong>, securing early anchor clients from scratch.</li>
-                <li>Maintain <strong>90% client retention</strong> across multi-year enterprise accounts.</li>
-              </ul>
-            </div>
-            <div class="exp-category">
-              <div class="exp-cat-label">Product &amp; Revenue Operations</div>
-              <ul class="exp-points">
-                <li>Collaborate with engineering on <strong>feature scoping, UAT, and platform UX</strong> &mdash; acting as the commercial voice in product decisions.</li>
-                <li>Architected the full revenue operations stack: <strong>HubSpot CRM, Clay, ClickUp</strong> &mdash; delivering pipeline visibility and forecasting discipline.</li>
-                <li>Built AI-powered outbound automation using <strong>Clay and n8n</strong>, improving lead qualification and reducing acquisition cost.</li>
-                <li>Oversee <strong>B2B content strategy</strong> producing SEO-optimised articles that drive inbound leads, alongside a B2C operation promoting client events to end customers.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-item" onclick="toggleExp(this)">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Business Development Team Lead</div>
-            <div class="exp-company">Green World Safety &amp; Security Consultancy &mdash; Enterprise Safety SaaS</div>
-          </div>
-          <div class="exp-meta">
-            <div class="exp-period">Feb 2020 &ndash; Sep 2021 &middot; Dubai, UAE</div>
-            <div class="exp-toggle">+</div>
-          </div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-content">
+        <div class="exp-body"><div class="exp-content">
+          <div class="exp-category"><div class="exp-cat-label">Leadership &amp; Team Management</div>
             <ul class="exp-points">
-              <li><strong>Promoted to Team Lead within 6 months</strong> after achieving highest monthly revenue for 3 consecutive months.</li>
-              <li>Led enterprise platform sales to Fortune 500 clients including <strong>Bharat Petroleum (BPCL) and Aditya Birla Group</strong> through multi-stakeholder consultative selling.</li>
-              <li>Executed full enterprise sales cycles across petroleum, manufacturing, and industrial verticals.</li>
-              <li>Identified and penetrated new verticals, delivering a <strong>20% increase in enterprise client acquisition YoY</strong>.</li>
-              <li>Built structured pipeline using CRM tools, implementing outreach cadences that improved lead-to-opportunity conversion.</li>
+              <li><strong>Lead a 15-person cross-functional team</strong> spanning sales executives, BD partners, social media specialists, graphic designers, SEO content writers, and an editorial lead &mdash; plus direct oversight of three specialist agencies.</li>
+              <li>Set and own targets across all functions: <strong>revenue and client acquisition targets</strong> varied by region, and KPI frameworks for non-sales staff covering content output and organic traffic growth.</li>
+              <li>Manage the full performance lifecycle &mdash; from structured coaching and pipeline reviews to formal PIPs and termination where necessary.</li>
+              <li><strong>Built all core operational frameworks from scratch</strong>: sales playbook, onboarding programme, performance management structure, and compensation model.</li>
+              <li>Run weekly team meetings, pipeline reviews, and individual 1-on-1 coaching sessions across all functions.</li>
             </ul>
           </div>
-        </div>
-      </div>
-
-      <div class="exp-item" onclick="toggleExp(this)">
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">Sales &amp; Marketing Executive</div>
-            <div class="exp-company">Taj Hotels &mdash; Luxury Hospitality</div>
-          </div>
-          <div class="exp-meta">
-            <div class="exp-period">May 2018 &ndash; Nov 2019 &middot; Goa, India</div>
-            <div class="exp-toggle">+</div>
-          </div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-content">
+          <div class="exp-category"><div class="exp-cat-label">CEO Advisory &amp; Regional Strategy</div>
             <ul class="exp-points">
-              <li>Managed key B2B accounts with Thomas Cook, Cox &amp; Kings, OTAs, and corporate clients across India.</li>
-              <li>Negotiated corporate contracts for long-term accommodation partnerships, conferences, and events.</li>
-              <li>Executed data-driven campaigns using customer segmentation and behavioural analytics.</li>
+              <li>Trusted <strong>strategic advisor to the CEO</strong> &mdash; consulted on market entry, revenue planning, product priorities, and organisational decisions.</li>
+              <li><strong>Identified high self-signup abandonment</strong> and led a strategic pivot redeploying the sales team to convert dormant accounts &mdash; driving a <strong>50% uplift in self-signups going live</strong>.</li>
+              <li>Set UAE market pricing strategy and negotiate directly with payment processors to improve platform unit economics.</li>
+              <li>Drive quarterly planning cycles, defining market priorities and revenue targets across all active regions.</li>
+              <li><strong>Primary government liaison</strong> including DET relationship and sole owner of all UAE compliance matters.</li>
             </ul>
           </div>
+          <div class="exp-category"><div class="exp-cat-label">Enterprise Sales &amp; Market Development</div>
+            <ul class="exp-points">
+              <li><strong>Personally closed $5M+ in enterprise contracts</strong> (~$800K average, 2-year terms) through C-level engagement across 7 global markets &mdash; $2M in active pipeline (2026).</li>
+              <li>Led teams to deliver <strong>&#163;300K+ UK revenue</strong> and 140+ new India clients, including a &#8377;20M white label deal.</li>
+              <li><strong>Personally opened UAE and Bali markets</strong>, securing early anchor clients from scratch.</li>
+              <li>Maintain <strong>90% client retention</strong> across multi-year enterprise accounts.</li>
+            </ul>
+          </div>
+          <div class="exp-category"><div class="exp-cat-label">Product &amp; Revenue Operations</div>
+            <ul class="exp-points">
+              <li>Collaborate with engineering on <strong>feature scoping, UAT, and platform UX</strong> &mdash; acting as the commercial voice in product decisions.</li>
+              <li>Architected the full revenue operations stack: <strong>HubSpot CRM, Clay, ClickUp</strong>.</li>
+              <li>Built AI-powered outbound automation using <strong>Clay and n8n</strong>, improving lead qualification and reducing acquisition cost.</li>
+              <li>Oversee <strong>B2B content strategy</strong> producing SEO-optimised articles that drive inbound leads, alongside a B2C operation promoting client events to end customers.</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div><div class="exp-role">Business Development Team Lead</div><div class="exp-company">Green World Safety &amp; Security Consultancy</div></div>
+          <div class="exp-right"><div class="exp-period">Feb 2020 &ndash; Sep 2021 &middot; Dubai, UAE</div><div class="exp-toggle">+</div></div>
         </div>
+        <div class="exp-body"><div class="exp-content">
+          <ul class="exp-points">
+            <li><strong>Promoted to Team Lead within 6 months</strong> after achieving highest monthly revenue for 3 consecutive months.</li>
+            <li>Led enterprise platform sales to Fortune 500 clients including <strong>Bharat Petroleum (BPCL) and Aditya Birla Group</strong>.</li>
+            <li>Executed full enterprise sales cycles across petroleum, manufacturing, and industrial verticals.</li>
+            <li>Identified and penetrated new verticals, delivering a <strong>20% increase in enterprise client acquisition YoY</strong>.</li>
+            <li>Built structured pipeline using CRM tools, implementing outreach cadences that improved lead-to-opportunity conversion.</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="exp-item" onclick="toggleExp(this)">
+        <div class="exp-header">
+          <div><div class="exp-role">Sales &amp; Marketing Executive</div><div class="exp-company">Taj Hotels &mdash; Luxury Hospitality</div></div>
+          <div class="exp-right"><div class="exp-period">May 2018 &ndash; Nov 2019 &middot; Goa, India</div><div class="exp-toggle">+</div></div>
+        </div>
+        <div class="exp-body"><div class="exp-content">
+          <ul class="exp-points">
+            <li>Managed key B2B accounts with Thomas Cook, Cox &amp; Kings, OTAs, and corporate clients across India.</li>
+            <li>Negotiated corporate contracts for accommodation partnerships, conferences, and events.</li>
+            <li>Executed data-driven campaigns using customer segmentation and behavioural analytics.</li>
+          </ul>
+        </div></div>
       </div>
     </div>
   </div>
@@ -529,73 +374,121 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 <section id="skills">
   <div class="inner">
     <div class="reveal">
-      <p class="section-label">Capabilities</p>
-      <h2 class="section-title">What I bring to the table.</h2>
+      <p class="section-eyebrow">Capabilities</p>
+      <h2 class="section-title">What I bring <em>to the table.</em></h2>
     </div>
-    <div class="skills-rows reveal">
-      <div class="skill-divider">Core Competencies</div>
-      <div class="skill-row">
-        <div class="skill-cat">Leadership &amp; People</div>
-        <div class="skill-tags-inline">
-          <span class="skill-tag-inline">Cross-Functional Leadership</span>
-          <span class="skill-tag-inline">Performance Management</span>
-          <span class="skill-tag-inline">Coaching &amp; Mentoring</span>
-          <span class="skill-tag-inline">Onboarding Frameworks</span>
-          <span class="skill-tag-inline">Hiring &amp; PIPs</span>
-          <span class="skill-tag-inline">Agency Management</span>
+    <div class="reveal">
+      <p class="skills-section-label">Core Competencies</p>
+      <div class="skills-card-grid">
+        <div class="skill-card">
+          <span class="skill-card-icon">👥</span>
+          <div class="skill-card-title">Leadership &amp; People</div>
+          <div class="skill-card-tags">
+            <span class="skill-tag">Cross-Functional Leadership</span>
+            <span class="skill-tag">Performance Management</span>
+            <span class="skill-tag">Coaching &amp; Mentoring</span>
+            <span class="skill-tag">Onboarding Frameworks</span>
+            <span class="skill-tag">Hiring &amp; PIPs</span>
+            <span class="skill-tag">Agency Management</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card-icon">📈</span>
+          <div class="skill-card-title">Sales &amp; Revenue</div>
+          <div class="skill-card-tags">
+            <span class="skill-tag">Enterprise SaaS Sales</span>
+            <span class="skill-tag">C-Level Negotiations</span>
+            <span class="skill-tag">Pipeline Forecasting</span>
+            <span class="skill-tag">Contract Negotiation</span>
+            <span class="skill-tag">Client Retention</span>
+            <span class="skill-tag">Consultative Selling</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card-icon">🗺️</span>
+          <div class="skill-card-title">Strategy &amp; Operations</div>
+          <div class="skill-card-tags">
+            <span class="skill-tag">Go-to-Market Strategy</span>
+            <span class="skill-tag">Regional Expansion</span>
+            <span class="skill-tag">Quarterly Planning</span>
+            <span class="skill-tag">Budget Planning</span>
+            <span class="skill-tag">Govt. &amp; Compliance</span>
+            <span class="skill-tag">Product Collaboration</span>
+          </div>
         </div>
       </div>
-      <div class="skill-row">
-        <div class="skill-cat">Sales &amp; Revenue</div>
-        <div class="skill-tags-inline">
-          <span class="skill-tag-inline">Enterprise SaaS Sales</span>
-          <span class="skill-tag-inline">C-Level Negotiations</span>
-          <span class="skill-tag-inline">Pipeline Forecasting</span>
-          <span class="skill-tag-inline">Contract Negotiation</span>
-          <span class="skill-tag-inline">Client Retention</span>
-          <span class="skill-tag-inline">Consultative Selling</span>
+      <p class="skills-section-label">Tech Stack</p>
+      <div class="skills-card-grid">
+        <div class="skill-card">
+          <span class="skill-card-icon">🔗</span>
+          <div class="skill-card-title">CRM &amp; Pipeline</div>
+          <div class="skill-card-tags">
+            <span class="skill-tag">HubSpot CRM</span>
+            <span class="skill-tag">Pipedrive</span>
+            <span class="skill-tag">Clay</span>
+            <span class="skill-tag">LinkedIn Sales Navigator</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card-icon">⚡</span>
+          <div class="skill-card-title">Automation &amp; Analytics</div>
+          <div class="skill-card-tags">
+            <span class="skill-tag">n8n</span>
+            <span class="skill-tag">Zapier</span>
+            <span class="skill-tag">Google Analytics</span>
+            <span class="skill-tag">Ahrefs</span>
+            <span class="skill-tag">SEMrush</span>
+            <span class="skill-tag">Surfer AI</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card-icon">🛠️</span>
+          <div class="skill-card-title">Project &amp; Collaboration</div>
+          <div class="skill-card-tags">
+            <span class="skill-tag">ClickUp</span>
+            <span class="skill-tag">Slack</span>
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">Microsoft Office</span>
+          </div>
         </div>
       </div>
-      <div class="skill-row">
-        <div class="skill-cat">Strategy &amp; Operations</div>
-        <div class="skill-tags-inline">
-          <span class="skill-tag-inline">Go-to-Market Strategy</span>
-          <span class="skill-tag-inline">Regional Expansion</span>
-          <span class="skill-tag-inline">Quarterly Planning</span>
-          <span class="skill-tag-inline">Budget Planning</span>
-          <span class="skill-tag-inline">Govt. &amp; Compliance</span>
-          <span class="skill-tag-inline">Product Collaboration</span>
-        </div>
+    </div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Languages</p>
+      <h2 class="section-title">How I <em>connect.</em></h2>
+    </div>
+    <div class="lang-grid reveal">
+      <div class="lang-card">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Fluent</div>
+        <div class="lang-bar"><div class="lang-bar-fill" data-width="100%"></div></div>
+        <div class="lang-note">First language for work, life, and reading menus abroad.</div>
       </div>
-      <div class="skill-divider">Tech Stack</div>
-      <div class="skill-row">
-        <div class="skill-cat">CRM &amp; Pipeline</div>
-        <div class="skill-tags-inline">
-          <span class="skill-tag-inline">HubSpot CRM</span>
-          <span class="skill-tag-inline">Pipedrive</span>
-          <span class="skill-tag-inline">Clay</span>
-          <span class="skill-tag-inline">LinkedIn Sales Navigator</span>
-        </div>
+      <div class="lang-card">
+        <div class="lang-name">Hindi</div>
+        <div class="lang-level">Fluent</div>
+        <div class="lang-bar"><div class="lang-bar-fill" data-width="90%"></div></div>
+        <div class="lang-note">Grew up with it. Still the best language for Bollywood arguments.</div>
       </div>
-      <div class="skill-row">
-        <div class="skill-cat">Automation &amp; Analytics</div>
-        <div class="skill-tags-inline">
-          <span class="skill-tag-inline">n8n</span>
-          <span class="skill-tag-inline">Zapier</span>
-          <span class="skill-tag-inline">Google Analytics</span>
-          <span class="skill-tag-inline">Ahrefs</span>
-          <span class="skill-tag-inline">SEMrush</span>
-          <span class="skill-tag-inline">Surfer AI</span>
-        </div>
+      <div class="lang-card">
+        <div class="lang-name">Konkani</div>
+        <div class="lang-level">Native</div>
+        <div class="lang-bar"><div class="lang-bar-fill" data-width="95%"></div></div>
+        <div class="lang-note">From the land of beaches, sunshine, and rain.</div>
       </div>
-      <div class="skill-row">
-        <div class="skill-cat">Project &amp; Collaboration</div>
-        <div class="skill-tags-inline">
-          <span class="skill-tag-inline">ClickUp</span>
-          <span class="skill-tag-inline">Slack</span>
-          <span class="skill-tag-inline">Google Workspace</span>
-          <span class="skill-tag-inline">Microsoft Office</span>
-        </div>
+    </div>
+    <div class="lang-arabic reveal">
+      <div class="lang-arabic-left">
+        <div class="lang-arabic-phrase" id="arabicPhrase"></div>
+        <div class="lang-arabic-sub">Arabic</div>
+      </div>
+      <div class="lang-arabic-note" id="arabicNote" style="opacity:0;transition:opacity 0.8s ease;">
+        That is all the Arabic I know. <em>Thank you, Dubai Metro.</em>
       </div>
     </div>
   </div>
@@ -604,15 +497,20 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 <section id="contact">
   <div class="inner">
     <div class="reveal">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Open to the right<br>conversation.</h2>
-      <p class="contact-exploring">Currently exploring the right next challenge. &nbsp;<em>Based in Dubai &middot; Open to regional leadership opportunities in the UAE and globally.</em></p>
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title">Open to the right <em>conversation.</em></h2>
+      <div class="contact-status"><span class="contact-status-dot"></span> Currently exploring the right next challenge</div>
+      <p class="contact-exploring"><em>Based in Dubai &middot; Open to regional leadership opportunities in the UAE and globally</em></p>
       <p class="contact-sub">Whether you are building a team, expanding into new markets, or looking for someone who leads both &mdash; I am always open to a good conversation.</p>
       <div class="contact-methods">
         <a href="mailto:shaind17@gmail.com" class="contact-card"><span>&#9993;</span> Email</a>
         <a href="tel:+971567024809" class="contact-card"><span>&#128222;</span> Call</a>
         <a href="https://wa.me/971567024809" target="_blank" class="contact-card"><span>&#128172;</span> WhatsApp</a>
         <a href="https://linkedin.com/in/shain-dsouza-52b8151a0" target="_blank" class="contact-card"><span>in</span> LinkedIn</a>
+      </div>
+      <div class="resume-download">
+        <p>For the HR managers who need a more structured version &mdash; click the button below.</p>
+        <a href="#" class="btn-download">&#8681; Download Resume</a>
       </div>
     </div>
   </div>
@@ -624,116 +522,74 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
 </footer>
 
 <script>
+// PARTICLES
 const canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d");
 let W,H;
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
 resize();window.addEventListener("resize",resize);
-
-class Star{
-  constructor(){this.reset(true);}
-  reset(init){
-    this.x=Math.random()*W;
-    this.y=init?Math.random()*H:Math.random()*H;
-    this.size=Math.random()*0.8+0.1;
-    this.opacity=Math.random()*0.7+0.1;
-    this.twinkleSpeed=Math.random()*0.02+0.005;
-    this.phase=Math.random()*Math.PI*2;
-    this.drift=(Math.random()-0.5)*0.06;
-  }
-  update(){this.phase+=this.twinkleSpeed;this.x+=this.drift;if(this.x<0||this.x>W)this.drift*=-1;}
-  draw(){
-    const a=this.opacity*(0.4+0.6*Math.sin(this.phase));
-    ctx.save();ctx.globalAlpha=a;ctx.fillStyle="#e8e0ff";
-    ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore();
-  }
-}
-
-class Sparkle{
-  constructor(){this.reset();}
-  reset(){
-    this.x=Math.random()*W;this.y=Math.random()*H;
-    this.size=Math.random()*1.1+0.2;this.opacity=Math.random()*0.45+0.08;
-    this.vx=(Math.random()-0.5)*0.12;this.vy=-Math.random()*0.2-0.04;
-    this.life=1;this.decay=Math.random()*0.002+0.0006;this.phase=Math.random()*Math.PI*2;
-  }
-  update(){this.x+=this.vx;this.y+=this.vy;this.phase+=0.04;this.life-=this.decay;if(this.life<=0||this.y<-10)this.reset();}
-  draw(){
-    const a=this.opacity*this.life*(0.5+0.5*Math.sin(this.phase));
-    ctx.save();ctx.globalAlpha=a;ctx.fillStyle="#c084fc";
-    const s=this.size;
-    ctx.beginPath();
-    ctx.moveTo(this.x,this.y-s*2.2);ctx.lineTo(this.x+s*0.35,this.y-s*0.35);
-    ctx.lineTo(this.x+s*2.2,this.y);ctx.lineTo(this.x+s*0.35,this.y+s*0.35);
-    ctx.lineTo(this.x,this.y+s*2.2);ctx.lineTo(this.x-s*0.35,this.y+s*0.35);
-    ctx.lineTo(this.x-s*2.2,this.y);ctx.lineTo(this.x-s*0.35,this.y-s*0.35);
-    ctx.closePath();ctx.fill();ctx.restore();
-  }
-}
-
-class Ray{
-  constructor(){this.reset();}
-  reset(){
-    this.x=Math.random()*W;this.y=-150;
-    this.angle=(Math.random()-0.5)*0.3;
-    this.length=Math.random()*400+200;
-    this.width=Math.random()*1.2+0.2;
-    this.opacity=Math.random()*0.03+0.006;
-    this.speed=Math.random()*0.35+0.08;
-    this.life=1;this.decay=Math.random()*0.0015+0.0005;
-  }
-  update(){this.y+=this.speed;this.life-=this.decay;if(this.life<=0||this.y>H+200)this.reset();}
-  draw(){
-    ctx.save();ctx.globalAlpha=this.opacity*this.life;
-    ctx.strokeStyle="#a855f7";ctx.lineWidth=this.width;
-    ctx.beginPath();ctx.moveTo(this.x,this.y);
-    ctx.lineTo(this.x+Math.sin(this.angle)*this.length,this.y+Math.cos(this.angle)*this.length);
-    ctx.stroke();ctx.restore();
-  }
-}
-
-const stars=Array.from({length:200},()=>new Star());
-const sparkles=Array.from({length:60},()=>new Sparkle());
+class Star{constructor(){this.reset(true);}reset(init){this.x=Math.random()*W;this.y=init?Math.random()*H:Math.random()*H;this.size=Math.random()*0.75+0.1;this.opacity=Math.random()*0.65+0.1;this.speed=Math.random()*0.02+0.005;this.phase=Math.random()*Math.PI*2;this.drift=(Math.random()-0.5)*0.05;}update(){this.phase+=this.speed;this.x+=this.drift;if(this.x<0||this.x>W)this.drift*=-1;}draw(){const a=this.opacity*(0.4+0.6*Math.sin(this.phase));ctx.save();ctx.globalAlpha=a;ctx.fillStyle="#e0d8ff";ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore();}}
+class Sparkle{constructor(){this.reset();}reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.size=Math.random()*1.0+0.15;this.opacity=Math.random()*0.4+0.07;this.vx=(Math.random()-0.5)*0.1;this.vy=-Math.random()*0.18-0.03;this.life=1;this.decay=Math.random()*0.0018+0.0005;this.phase=Math.random()*Math.PI*2;}update(){this.x+=this.vx;this.y+=this.vy;this.phase+=0.04;this.life-=this.decay;if(this.life<=0||this.y<-10)this.reset();}draw(){const a=this.opacity*this.life*(0.5+0.5*Math.sin(this.phase));ctx.save();ctx.globalAlpha=a;ctx.fillStyle="#c084fc";const s=this.size;ctx.beginPath();ctx.moveTo(this.x,this.y-s*2.2);ctx.lineTo(this.x+s*0.35,this.y-s*0.35);ctx.lineTo(this.x+s*2.2,this.y);ctx.lineTo(this.x+s*0.35,this.y+s*0.35);ctx.lineTo(this.x,this.y+s*2.2);ctx.lineTo(this.x-s*0.35,this.y+s*0.35);ctx.lineTo(this.x-s*2.2,this.y);ctx.lineTo(this.x-s*0.35,this.y-s*0.35);ctx.closePath();ctx.fill();ctx.restore();}}
+class Ray{constructor(){this.reset();}reset(){this.x=Math.random()*W;this.y=-150;this.angle=(Math.random()-0.5)*0.28;this.length=Math.random()*380+180;this.width=Math.random()*1.1+0.2;this.opacity=Math.random()*0.028+0.005;this.speed=Math.random()*0.32+0.07;this.life=1;this.decay=Math.random()*0.0014+0.0004;}update(){this.y+=this.speed;this.life-=this.decay;if(this.life<=0||this.y>H+200)this.reset();}draw(){ctx.save();ctx.globalAlpha=this.opacity*this.life;ctx.strokeStyle="#a855f7";ctx.lineWidth=this.width;ctx.beginPath();ctx.moveTo(this.x,this.y);ctx.lineTo(this.x+Math.sin(this.angle)*this.length,this.y+Math.cos(this.angle)*this.length);ctx.stroke();ctx.restore();}}
+const stars=Array.from({length:220},()=>new Star());
+const sparkles=Array.from({length:55},()=>new Sparkle());
 const rays=Array.from({length:8},()=>new Ray());
-function animate(){
-  ctx.clearRect(0,0,W,H);
-  stars.forEach(s=>{s.update();s.draw();});
-  rays.forEach(r=>{r.update();r.draw();});
-  sparkles.forEach(s=>{s.update();s.draw();});
-  requestAnimationFrame(animate);
-}
+function animate(){ctx.clearRect(0,0,W,H);stars.forEach(s=>{s.update();s.draw();});rays.forEach(r=>{r.update();r.draw();});sparkles.forEach(s=>{s.update();s.draw();});requestAnimationFrame(animate);}
 animate();
 
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add("visible"),i*80);});
-},{threshold:0.1});
+// TYPING — hero
+const words=["Regional Manager","Team Builder","Market Opener","Aspiring Coder"];
+let wIdx=0,cIdx=0,deleting=false,pauseCount=0;
+const typEl=document.getElementById("typingText");
+function type(){
+  const word=words[wIdx];
+  if(!deleting){
+    typEl.textContent=word.slice(0,cIdx+1);cIdx++;
+    if(cIdx===word.length){deleting=true;pauseCount=0;setTimeout(type,1400);return;}
+  } else {
+    if(pauseCount<1){pauseCount++;setTimeout(type,1400);return;}
+    typEl.textContent=word.slice(0,cIdx-1);cIdx--;
+    if(cIdx===0){deleting=false;wIdx=(wIdx+1)%words.length;}
+  }
+  setTimeout(type,deleting?45:70);
+}
+type();
+
+// ARABIC TYPING
+let arabicStarted=false;
+function typeArabic(){
+  if(arabicStarted)return;
+  arabicStarted=true;
+  const phrase="Al abwab tughlaq";
+  const el=document.getElementById("arabicPhrase");
+  const note=document.getElementById("arabicNote");
+  let i=0;
+  function t(){
+    if(i<=phrase.length){el.textContent=phrase.slice(0,i);i++;setTimeout(t,65);}
+    else{setTimeout(()=>{note.style.opacity="1";},400);}
+  }
+  t();
+}
+const arabicObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){typeArabic();arabicObs.unobserve(e.target);}});
+},{threshold:0.5});
+const arabicEl=document.querySelector(".lang-arabic");
+if(arabicEl)arabicObs.observe(arabicEl);
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add("visible"),i*80);});},{threshold:0.1});
 document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 
-function counter(el){
-  const target=+el.dataset.target,pre=el.dataset.prefix||"",suf=el.dataset.suffix||"";
-  let cur=0;const steps=55,inc=target/steps;
-  const t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t);}el.textContent=pre+Math.floor(cur)+suf;},2000/steps);
-}
-const cObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll("[data-target]").forEach(counter);cObs.unobserve(e.target);}});
-},{threshold:0.3});
+// COUNTER
+function counter(el){const target=+el.dataset.target,pre=el.dataset.prefix||"",suf=el.dataset.suffix||"";let cur=0;const steps=55,inc=target/steps;const t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t);}el.textContent=pre+Math.floor(cur)+suf;},2000/steps);}
+const cObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll("[data-target]").forEach(counter);cObs.unobserve(e.target);}});},{threshold:0.3});
 document.querySelectorAll(".achievements-rows").forEach(el=>cObs.observe(el));
 
-// Mobile touch for skill rows
-document.querySelectorAll(".skill-row").forEach(row=>{
-  row.addEventListener("touchstart",()=>{
-    document.querySelectorAll(".skill-row").forEach(r=>r.classList.remove("touched"));
-    row.classList.add("touched");
-  },{passive:true});
-});
-document.addEventListener("touchstart",e=>{
-  if(!e.target.closest(".skill-row"))document.querySelectorAll(".skill-row").forEach(r=>r.classList.remove("touched"));
-},{passive:true});
+// LANGUAGE BARS
+const langObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll(".lang-bar-fill").forEach(bar=>{setTimeout(()=>{bar.style.width=bar.dataset.width;},200);});langObs.unobserve(e.target);}});},{threshold:0.3});
+document.querySelectorAll(".lang-grid").forEach(el=>langObs.observe(el));
 
-function toggleExp(item){
-  const was=item.classList.contains("active");
-  document.querySelectorAll(".exp-item").forEach(i=>i.classList.remove("active"));
-  if(!was)item.classList.add("active");
-}
+// EXP TOGGLE
+function toggleExp(item){const was=item.classList.contains("active");document.querySelectorAll(".exp-item").forEach(i=>i.classList.remove("active"));if(!was)item.classList.add("active");}
 </script>
 </body>
 </html>
