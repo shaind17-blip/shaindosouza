@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shain D Souza</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMUI0MzMyIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMC41Ij5TRDwvdGV4dD4KPC9zdmc+">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ6MXTLMS1"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-HJ6MXTLMS1');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -164,6 +171,20 @@ section{position:relative;z-index:1;}
 .resume-download p em{color:var(--text-muted);font-style:normal;}
 .btn-download{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);color:var(--text-muted);text-decoration:none;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;transition:all 0.3s;backdrop-filter:blur(20px);}
 .btn-download:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,212,191,0.15);background:rgba(45,212,191,0.05);}
+
+/* CONTACT FORM */
+.contact-form-wrap{margin-top:52px;padding-top:48px;border-top:1px solid var(--glass-border);}
+.contact-form-label{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px;display:block;}
+.contact-form{display:flex;flex-direction:column;gap:14px;max-width:520px;margin:0 auto;}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);color:var(--text);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:300;backdrop-filter:blur(20px);transition:border-color 0.3s;outline:none;resize:none;}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-dim);}
+.contact-form input:focus,.contact-form textarea:focus{border-color:rgba(168,85,247,0.4);}
+.contact-form textarea{min-height:120px;}
+.contact-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.btn-send{padding:14px 32px;background:var(--purple);color:white;border:none;font-family:"DM Sans",sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;align-self:flex-start;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
+.btn-send:hover{background:var(--purple-bright);transform:translateY(-2px);box-shadow:0 8px 28px rgba(168,85,247,0.4);}
+.form-success{display:none;padding:16px 20px;background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.2);color:var(--teal);font-size:13px;text-align:center;}
+@media(max-width:600px){.contact-form-row{grid-template-columns:1fr;}}
 
 /* FOOTER */
 footer{padding:28px 64px;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;background:rgba(6,6,15,0.8);backdrop-filter:blur(20px);}
@@ -504,14 +525,35 @@ footer p{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;}
       <p class="contact-exploring"><em>Based in Dubai &middot; Open to regional leadership opportunities in the UAE and globally</em></p>
       <p class="contact-sub">Whether you are building a team, expanding into new markets, or looking for someone who leads both &mdash; I am always open to a good conversation.</p>
       <div class="contact-methods">
-        <a href="mailto:shaind17@gmail.com" class="contact-card"><span>&#9993;</span> Email</a>
-        <a href="tel:+971567024809" class="contact-card"><span>&#128222;</span> Call</a>
-        <a href="https://wa.me/971567024809" target="_blank" class="contact-card"><span>&#128172;</span> WhatsApp</a>
-        <a href="https://linkedin.com/in/shain-dsouza-52b8151a0" target="_blank" class="contact-card"><span>in</span> LinkedIn</a>
+        <a href="mailto:shaind17@gmail.com" class="contact-card" onclick="gtag('event','click',{event_category:'contact',event_label:'email'})"><span>&#9993;</span> Email</a>
+        <a href="tel:+971567024809" class="contact-card" onclick="gtag('event','click',{event_category:'contact',event_label:'call'})"><span>&#128222;</span> Call</a>
+        <a href="https://wa.me/971567024809" target="_blank" class="contact-card" onclick="gtag('event','click',{event_category:'contact',event_label:'whatsapp'})"><span>&#128172;</span> WhatsApp</a>
+        <a href="https://linkedin.com/in/shain-dsouza-52b8151a0" target="_blank" class="contact-card" onclick="gtag('event','click',{event_category:'contact',event_label:'linkedin'})"><span>in</span> LinkedIn</a>
       </div>
       <div class="resume-download">
         <p>For the HR managers who need a more structured version &mdash; click the button below.</p>
-        <a href="Shain_Dsouza_Resume_.pdf" class="btn-download">&#8681; Download Resume</a>
+        <a href="Shain_Dsouza_Resume.pdf" class="btn-download" download onclick="gtag('event','download',{event_category:'resume',event_label:'pdf'})">&#8681; Download Resume</a>
+      </div>
+      <div class="contact-form-wrap">
+        <span class="contact-form-label">Or drop me a message directly</span>
+        <div data-fs-success class="form-success" id="formSuccess">Message sent. I will get back to you shortly.</div>
+        <div data-fs-error style="color:var(--purple-bright);font-size:12px;margin-bottom:8px;text-align:center;"></div>
+        <form class="contact-form" id="contactForm">
+          <div class="contact-form-row">
+            <input type="text" name="name" placeholder="Your name" required data-fs-field>
+            <input type="text" name="company" placeholder="Company (optional)">
+          </div>
+          <input type="email" name="email" placeholder="Your email" required data-fs-field>
+          <span data-fs-error="email" style="font-size:11px;color:var(--purple-bright);"></span>
+          <textarea name="message" placeholder="What would you like to discuss?" required data-fs-field></textarea>
+          <span data-fs-error="message" style="font-size:11px;color:var(--purple-bright);"></span>
+          <button type="submit" class="btn-send" data-fs-submit-btn>Send Message</button>
+        </form>
+        <script>
+          window.formspree=window.formspree||function(){(formspree.q=formspree.q||[]).push(arguments);};
+          formspree('initForm',{formElement:'#contactForm',formId:'xkoywepw'});
+        </script>
+        <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
       </div>
     </div>
   </div>
